@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TV Show
+    </title>
+    {% load static %}
+	<link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div id="wrapper">
+        <h1>All Shows</h1>
+        <div class="box">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Network</th>
+                        <th>Release Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                {% for show in all_the_shows %}
+                <tbody>
+                    <tr>
+                        <td>{{ show.id }}</td>
+                        <td>{{ show.title }}</td>
+                        <td>{{ show.network }}</td>
+                        <td>{{ show.release_date }}</td>
+                        <td><a href="/shows/{{show.id}}">Show</a> | <a href="/shows/{{show.id}}/edit">Edit</a> | <a href="/shows/{{show.id}}/delete">Delete</a></td>
+                    </tr>
+                </tbody>
+                {% endfor %}
+            </table>
+        </div><br>
+        <a href="/shows/new" id="acenter">Add a New Show</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete</title>
+
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px auto;
+            background-color: salmon;
+            color: wheat;
+            text-align: center;
+        }
+
+        button {
+            padding: 20px;
+            border-radius: 10px;
+            color: salmon;
+            font-size: 15px;
+            background-color: wheat;
+        }
+
+        #atwo {
+            display: flex;
+            justify-content: center;
+            width: 250px;
+            margin-top: 20px;
+        }
+
+        input#done {
+            padding: 20px;
+            border-radius: 10px;
+            color: salmon;
+            font-size: 15px;
+            background-color: wheat;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <h1>Are you sure you want to delete {{ one_show.title }}?</h1>
+        <div id="atwo">
+            <form action="/shows/delete" method="post">
+                {% csrf_token %}
+                <input name="shows_id" value="{{ one_show.id }}" hidden>
+                <input type="submit" id="done" value="Yes">
+            </form>
+            <a href="/shows"><button>No</button></a>
+        </div>
+    </div>
+
+</body>
+
+</html>

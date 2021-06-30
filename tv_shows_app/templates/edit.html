@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TV Show
+    </title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+    <h1>Editing: {{ one_show.title }}</h1>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <form action="/shows/edit" method="post">
+        {% csrf_token %}
+        <h3>Title</h3>
+        <input name="shows_id" value="{{ one_show.id }}" hidden>
+        <div>
+            <input type="text" name="title"></div><br>
+        <div id="two">
+            <div class="spaces">
+                <h3>Network</h3>
+                <input type="text" name="network">
+            </div>
+            <div class="spaces">
+                <h3>Release Date</h3>
+                <input type="date" name="date">
+            </div>
+        </div><br>
+        <h3>Description</h3><br>
+        <div><textarea id="comment" name="notes" rows="5" cols="46"></textarea></div><br>
+        <input type="submit" id="done" value="Edit">
+    </form>
+    <a href="/shows/{{one_show.id}}" id="acenter">Go to Show</a>
+
+    <a href="/shows"><button>Back</button></a>
+</body>
+
+</html>

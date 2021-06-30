@@ -1,0 +1,30 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    background-color: salmon;
+    color: wheat;
+    font-size: 25px;
+}
+
+h1 {
+    padding: 20px;
+}
+
+p {
+    padding: 20px;
+}
+
+#pmargin {
+    margin-bottom: 100px;
+}
+
+a {
+    color: wheat;
+}
+
+.messages {
+    text-align: center;
+}
